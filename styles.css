@@ -1,10 +1,27 @@
-/* styles.css */
-.my-name {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 10px; /* Add some margin for spacing */
-    font-size: 60px; /* Adjust the font size as needed */
-    font-weight: bold; /* Optionally, make the text bold */
-  }
-  
+/* CSS to style the navigation bar */
+.navbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Style the navigation links */
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+/* Style the image in the middle */
+#image {
+  text-align: center; /* Center-align the content horizontally */
+  margin: 100px auto; /* Add spacing around the image and center it vertically and horizontally */
+}
+
+#image img {
+  max-width: 100%; /* Ensure the image doesn't exceed the container's width */
+}
