@@ -1,0 +1,10 @@
+/* styles.css */
+.my-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px; /* Add some margin for spacing */
+    font-size: 60px; /* Adjust the font size as needed */
+    font-weight: bold; /* Optionally, make the text bold */
+  }
+  
