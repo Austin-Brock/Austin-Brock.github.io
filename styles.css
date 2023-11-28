@@ -16,13 +16,15 @@
   margin-right: 20px;
 }
 
-/* Style the image in the middle */
+/* Style the circular image in the center */
 #image {
   text-align: center; /* Center-align the content horizontally */
   margin: 50px auto; /* Add spacing around the image and center it vertically and horizontally */
 }
 
 #image img {
-  max-width: 30%; /* Ensure the image doesn't exceed the container's width */
-  
+  width: 400px; /* Set the width to your desired size */
+  height: 400px; /* Set the height to the same value to make it a circle */
+  border-radius: 50%; /* Make the image circular by setting border-radius to 50% */
 }
+
