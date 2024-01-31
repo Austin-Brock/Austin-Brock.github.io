@@ -1,438 +1,270 @@
-/* GENERAL */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(45deg, #60b6db, rgb(247, 255, 222));
+  margin: 0;
+  font-family: 'Open Sans', sans-serif; /* Default font for the body */
 }
 
-html {
-  scroll-behavior: smooth;
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif; /* Assuming you're using Roboto for headings */
+  color: black; /* A dark grey color for headings */
+  font-size: 24px; /* Example size for headings */
 }
 
+/* Applying font styles to paragraph text */
 p {
-  color: rgb(85, 85, 85);
+  font-family: 'Open Sans', sans-serif; /* Assuming you're using Open Sans for paragraphs */
+  color: #555555; /* A lighter grey color for paragraph text */
+  font-size: 16px; /* Standard */
 }
 
-/* TRANSITION */
-
-a,
-.btn {
-  transition: all 300ms ease;
-}
-
-/* DESKTOP NAV */
-
-nav,
-.nav-links {
-  display: flex;
-}
-
+/* Style for the navigation bar */
 nav {
-  justify-content: space-around;
-  align-items: center;
-  height: 17vh;
+  display: flex;          /* Set the display to flex */
+  justify-content: flex-end; /* Justify content to the right */
+  background-color: black; /* A blackbackground */
+  color: white;             /* White text for contrast */
+  padding: 10px;            /* Some padding around the text */
 }
 
-.nav-links {
-  gap: 2rem;
-  list-style: none;
-  font-size: 1.5rem;
+nav p {
+  margin: 0; /* Remove default margin to align properly */
 }
 
-a {
-  color: black;
-  text-decoration: none;
-  text-decoration-color: white;
+/* Style for anchor tags in the navigation bar */
+nav a {
+  color: #fff;           /* White text color */
+  text-decoration: none; /* Removes the underline from links */
+  padding: 5px 10px;     /* Adds padding around the text for a better clickable area */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-a:hover {
-  color: grey;
-  text-decoration: underline;
-  text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+/* Hover state for anchor tags in the navigation bar */
+nav a:hover {
+  background-color: #ffffff; /* Darker shade of blue on hover */
+  color: #9236c7;            /* Change text color on hover for contrast */
 }
 
-.logo {
-  font-size: 2rem;
-}
-
-.logo:hover {
-  cursor: default;
-}
-
-/* HAMBURGER MENU */
-
-#hamburger-nav {
-  display: none;
-}
-
-.hamburger-menu {
-  position: relative;
-  display: inline-block;
-}
-
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  width: 30px;
-  cursor: pointer;
-}
-
-.hamburger-icon span {
-  width: 100%;
-  height: 2px;
-  background-color: black;
-  transition: all 0.3 ease-in-out;
-}
-
-.menu-links {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  width: fit-content;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.3 ease-in-out;
-}
-
-.menu-links a {
-  display: block;
-  padding: 10px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: black;
-  text-decoration: none;
-  transition: all 0.3 ease-in-out;
-}
-
-.menu-links li {
-  list-style: none;
-}
-
-.menu-links.open {
-  max-height: 300px;
-}
-
-.hamburger-icon.open span:first-child {
-  transform: rotate(45deg) translate(10px, 5px);
-}
-
-.hamburger-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-icon.open span:last-child {
-  transform: rotate(-45deg) translate(10px, -5px);
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-}
-
-.hamburger-icon span:first-child {
-  opacity: 1;
-}
-
-.hamburger-icon span:first-child {
-  transform: none;
-}
-
-/* SECTIONS */
-
-section {
-  padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
-  box-sizing: border-box;
-  min-height: fit-content;
-}
-
-.section-container {
-  display: flex;
-}
-
-/* PROFILE SECTION */
-
-#profile {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  height: 80vh;
-}
-
-.section__pic-container {
-  display: flex;
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-}
-
-img {
-  border-radius: 30%;
-}
-
-.section__text {
-  align-self: center;
-  text-align: center;
-}
-
-.section__text p {
-  font-weight: 600;
-}
-
-.section__text__p1 {
-  text-align: center;
-}
-
-.section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 1rem;
-}
-
-.title {
-  font-size: 3rem;
-  text-align: center;
-}
-
-#socials-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  gap: 1rem;
-}
-
-/* ICONS */
-
-.icon {
-  cursor: pointer;
-  height: 2rem;
-}
-
-/* BUTTONS */
-
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.btn {
-  font-weight: 600;
-  transition: all 300ms ease;
-  padding: 1rem;
-  width: 8rem;
-  border-radius: 2rem;
-}
-
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
-}
-
-.btn-color-1:hover,
-.btn-color-2:hover {
-  cursor: pointer;
-}
-
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-}
-
-.btn-color-1:hover {
-  background: rgb(0, 0, 0);
-}
-
-.btn-color-2 {
-  background: none;
-}
-
-.btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
-}
-
-.btn-container {
-  gap: 1rem;
-}
-
-/* ABOUT SECTION */
-
-#about {
-  position: relative;
-}
-
-.about-containers {
-  gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-}
-
-.about-details-container {
-  justify-content: center;
-  flex-direction: column;
-}
-
-.about-containers,
-.about-details-container {
-  display: flex;
-}
-
-.about-pic {
-  border-radius: 2rem;
-}
-
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
-
-.details-container {
-  padding: 1.5rem;
-  flex: 1;
-  background: white;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  text-align: center;
-}
-
-.section-container {
-  gap: 4rem;
-  height: 80%;
-}
-
-.section__pic-container {
-  height: 400px;
-  width: 400px;
-  margin: auto 0;
-}
-
-/* EXPERIENCE SECTION */
-
-#experience {
-  position: relative;
-}
-
-.experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-}
-
-.experience-details-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.article-container {
-  display: flex;
-  text-align: initial;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 2.5rem;
-  justify-content: space-around;
-}
-
-article {
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
-}
-
-article .icon {
-  cursor: default;
-}
-
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
-}
-
-.color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
-}
-
-.project-img {
-  border-radius: 2rem;
-  width: 90%;
-  height: 90%;
-}
-
-.project-title {
-  margin: 1rem;
-  color: black;
-}
-
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
-}
-
-/* CONTACT */
-
-#contact {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 70vh;
-}
-
-.contact-info-upper-container {
-  display: flex;
-  justify-content: center;
-  border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
-  margin: 2rem auto;
-  padding: 0.5rem;
-}
-
-.contact-info-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem;
-}
-
-.contact-info-container p {
-  font-size: larger;
-}
-
-.contact-icon {
-  cursor: default;
-}
-
-.email-icon {
-  height: 2.5rem;
-}
-
-/* FOOTER SECTION */
-
+/* Style for the footer */
 footer {
-  height: 26vh;
-  margin: 0 1rem;
+  display: flex;             /* Set the display to flex */
+  justify-content: center;   /* Center the child elements horizontally */
+  align-items: center;       /* Center the child elements vertically */
+  background-color: #9236c7; /* A purple background */
+  color: #ffffff;            /* White text for contrast */
+  padding: 20px;             /* Padding for some space inside the footer */
+  text-align: center;        /* Center-align the content */
 }
 
-footer p {
+/* Style for anchor tags in the footer */
+footer a {
+  color: black;            /* A bright color for the links */
+  text-decoration: none;     /* Removes the underline from links */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  margin: 0 10px;             /* Optional: Adds horizontal margin for spacing between links */
+}
+
+/* Hover state for anchor tags in the footer */
+footer a:hover {
+  color: #ffffff;            /* Changes text color to white on hover */
+  text-decoration: underline; /* Adds an underline on hover */
+}
+
+/* Style for the Austin-info section */
+.Austin-info {
+  background-color: #f0f0f0; /* Light gray background */
+  padding: 150px;             /* Padding around the content */
+  margin-bottom: 10px;       /* Space below the section */
   text-align: center;
+  background-image: url(images/city\ backround\ 3.jpg);
+}
+
+/* Style for the about-austin section */
+.about-austin {
+  background-color: #e0e0e0; /* Slightly darker gray background */
+  padding: 10px;             /* Padding around the content */
+  margin-bottom: 10px;       /* Space below the section */
+  text-align: center;
+}
+.about-austin img {
+  border-radius: 40%;
+  max-width: 100%; /* Ensures the image is responsive and fits in its container */
+  height: auto; /* Maintains the aspect ratio of the image */
+}
+
+/* Style for all anchor tags */
+a {
+  color: #1a0dab; /* Standard link blue color */
+  text-decoration: none; /* Removes the underline from links */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Hover state for all anchor tags */
+a:hover {
+  color: #ff4500; /* Change color on hover */
+  text-decoration: underline; /* Optionally add underline on hover for emphasis */
+}
+
+/* You can also have specific hover styles for links in specific sections */
+.Austin-info a:hover, .about-austin a:hover {
+  color: #9236c7; /* Different hover color for links in these sections */
+  /* Other styles like text-decoration can be added here if needed */
+}
+
+hr {
+  border-color: #9236c7; /* Sets the color of the border */
+  border-width: 2px;     /* Sets the width of the border */
+  border-style: solid;   /* Sets the style of the border */
+  margin: 20px 0;        /* Adds some space above and below the hr */
+}
+
+.about-austin hr {
+  border-color: #9236c7; /* Different color for hr in the .about-austin section */
+  border-width: 1px;     /* Different width for hr in the .about-austin section */
+  /* Other styles like border-style can be added or modified here if needed */
+}
+
+/* Style for the first image */
+.top-image-1 {
+  position: absolute;
+  top: 40px; /* Adjust these values as needed */
+  left: 40px; /* Adjust these values as needed */
+  width: 100px; /* Example width, adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for the second image */
+.top-image-2 {
+  position: absolute;
+  top: 40px; /* Adjust these values as needed */
+  right: 40px; /* Adjust these values as needed */
+  width: 100px; /* Example width, adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Style for images in the Austin-info section */
+.Austin-info img {
+  border: 3px solid black; /* Sets a solid green border with 3px thickness */
+  border-radius: 10px;       /* Rounds the corners of the image */
+  width: 200px;              /* Example width, adjust as needed */
+  height: 200px;              /* Maintain aspect ratio */
+}
+
+/* Style for the card */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+  border-radius: 10px; /* Optional: rounds the corners of the card */
+  background-color: #ffffff; /* Sets a white background color */
+  margin: 10px; /* Adds some space around the card */
+  padding: 15px; /* Adds some space inside the card */
+  max-width: 300px; /* Sets a maximum width for the card */
+  text-align: center; /* Centers the text inside the card */
+}
+
+.card img {
+  max-width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains the aspect ratio */
+  border-top-left-radius: 10px; /* Rounds the top left corner of the image */
+  border-top-right-radius: 10px; /* Rounds the top right corner of the image */
+}
+
+/* Style for the three-column layout */
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns */
+  grid-gap: 20px; /* Space between the grid items */
+  padding: 20px; /* Optional: Padding around the entire grid */
+  justify-content: center;
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 800px) {
+  .three-col {
+      grid-template-columns: 1fr; /* Stack the cards in a single column on smaller screens */
+  }
+}
+
+/* Style for the unordered list containing languages */
+ul.languages {
+  display: flex; /* Enables Flexbox */
+  flex-wrap: wrap; /* Allows items to wrap to the next line */
+  gap: 10px; /* Space between items */
+  list-style: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+}
+
+/* Style for each list item */
+ul.languages li {
+  background-color: #e0e0e0; /* Light gray background for each item */
+  padding: 5px 10px; /* Padding inside each item */
+  border-radius: 5px; /* Rounded corners for each item */
+}
+
+/* Style for the description list containing years and experience */
+dl.experience {
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Stack items vertically */
+  gap: 10px; /* Space between items */
+}
+
+/* Style for each term (dt) and description (dd) */
+dl.experience dt,
+dl.experience dd {
+  margin: 0; /* Removes default margin */
+  padding: 5px; /* Adds some padding */
+  background-color: #f0f0f0; /* Light background for each item */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the skills list (assuming it's an unordered list) */
+ul.skills {
+  display: flex; /* Enables Flexbox */
+  flex-wrap: wrap; /* Allows list items to wrap to the next line */
+  gap: 10px; /* Space between items */
+  list-style: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+}
+
+/* Style for each list item (skill) */
+ul.skills li {
+  background-color: #f0f0f0; /* Light gray background for each item */
+  padding: 5px 10px; /* Padding inside each item */
+  border-radius: 5px; /* Rounded corners for each item */
+}
+
+/* Style for the one-col class */
+.one-col {
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Aligns children in a single column */
+  gap: 10px; /* Space between items */
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically if the container is larger than the content */
+}
+
+/* Style for input fields and textarea */
+input[type="text"], input[type="email"], textarea {
+  width: 100%; /* Full width */
+  padding: 10px; /* Adds padding inside the input fields for better readability */
+  margin: 8px 0; /* Adds margin above and below each input field */
+  display: inline-block; /* Ensures the inputs are properly aligned */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Slightly rounded borders for a modern look */
+  box-sizing: border-box; /* Makes sure padding and border don't increase the width */
+}
+
+/* Style for submit button */
+input[type="submit"] {
+  width: 100%; /* Full width */
+  background-color: #9236c7; /* Green background color */
+  color: white; /* White text */
+  padding: 14px 20px; /* Padding for a larger, more clickable area */
+  margin: 8px 0; /* Margin above and below */
+  border: none; /* No border */
+  border-radius: 4px; /* Rounded borders */
+  cursor: pointer; /* Cursor changes to a pointer to indicate it's clickable */
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
 }
 

@@ -1,389 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Austin Brock</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+  <div id="retrobg">
+    <h1 id="nameTitle">Austin Brock</h1>
+    <h2 id="topRightText"><a href="contact.html">Contact Me</a></h2>
+    <img src="profilepicture2.jpg" id="myImage" alt="Description of image">
+    <div id="projectCards">
+      <div class="projectCard" id="card1">
+        <h3>Professional experience</h3>
+        <p>Macys-Software Engineer Intern</p><p>Worked with an International team to build a User interface web application.</p>
+        <p>UGA-Application Developer</p><p>This was my first Internship experience where I worked with an engineering team to build an IOS application.</p>
+        
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Brock</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+      <div class="projectCard" id="card2">
+        <h3>Projects</h3>
+        <ul>
+          <li><h3><a href="https://github.com/Austin-Brock">100 Days of code</a></h3>Started my own personal 100 days of code journey and have made 20+ projects since January 1st 2024</li>
+          <li><h3><a href="https://github.com/Austin-Brock/Persion-portfolio-storage">Personal portfolio website</a></h3>First personal portfolio website to showcase listed skils and experiences</li>
+        </ul> 
+      </div>
+      <div class="projectCard" id="card3">
+        <h3>Skills</h3>
+        <ul class="languages">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Java</li>
+          <li>C++</li>
+          <li>C#</li>
+          <li>Node</li>
+          <li>Express</li>
+          <li>Swift</li>
+      </ul>
+      </div>
+  </div>
+    <div id="retrobg-sky">
+      <div id="retrobg-stars">
+        <div class="retrobg-star" style="left:  5%; top: 55%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left:  7%; top:  5%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 10%; top: 45%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 12%; top: 35%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 15%; top: 39%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 20%; top: 10%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 35%; top: 50%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 40%; top: 16%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 43%; top: 28%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 45%; top: 30%; transform: scale( 3 );"></div>
+        <div class="retrobg-star" style="left: 55%; top: 18%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 60%; top: 23%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 62%; top: 44%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 67%; top: 27%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 75%; top: 10%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 80%; top: 25%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 83%; top: 57%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 90%; top: 29%; transform: scale( 2 );"></div>
+        <div class="retrobg-star" style="left: 95%; top:  5%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 96%; top: 72%; transform: scale( 1 );"></div>
+        <div class="retrobg-star" style="left: 98%; top: 70%; transform: scale( 3 );"></div>
+      </div>
+      <div id="retrobg-sunWrap">
+        <div id="retrobg-sun"></div>
+      </div>
+      <div id="retrobg-mountains">
+        <div id="retrobg-mountains-left" class="retrobg-mountain"></div>
+        <div id="retrobg-mountains-right" class="retrobg-mountain"></div>
+      </div>
+      <div id="retrobg-cityWrap">
+        <div id="retrobg-city">
+          <div style="left:  4.0%; height: 20%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left:  6.0%; height: 50%; width: 1.5%;" class="retrobg-building"></div>
+          <div style="left:  8.0%; height: 25%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 12.0%; height: 30%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 13.0%; height: 55%; width: 3.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 17.0%; height: 20%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 18.5%; height: 70%; width: 1.5%;" class="retrobg-building"></div>
+          <div style="left: 20.0%; height: 30%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 21.5%; height: 80%; width: 2.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 25.0%; height: 60%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 28.0%; height: 40%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 30.0%; height: 70%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 35.0%; height: 65%; width: 4.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 38.0%; height: 40%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 42.0%; height: 60%; width: 2.0%;" class="retrobg-building"></div>
+          <div style="left: 43.0%; height: 85%; width: 4.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 45.0%; height: 40%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 48.0%; height: 25%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 50.0%; height: 80%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 52.0%; height: 32%; width: 5.0%;" class="retrobg-building"></div>
+          <div style="left: 55.0%; height: 55%; width: 3.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 58.0%; height: 45%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 61.0%; height: 90%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 66.0%; height: 99%; width: 4.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 69.0%; height: 30%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 73.5%; height: 90%; width: 2.0%;" class="retrobg-building"></div>
+          <div style="left: 72.0%; height: 70%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 75.0%; height: 60%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 80.0%; height: 40%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 83.0%; height: 70%; width: 4.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 87.0%; height: 60%; width: 3.0%;" class="retrobg-building retrobg-antenna"></div>
+          <div style="left: 93.0%; height: 50%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 91.0%; height: 30%; width: 4.0%;" class="retrobg-building"></div>
+          <div style="left: 94.0%; height: 20%; width: 3.0%;" class="retrobg-building"></div>
+          <div style="left: 98.0%; height: 35%; width: 2.0%;" class="retrobg-building"></div>
         </div>
       </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="assets/profilepicture2.jpg" alt="Austin Brock profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Austin Brock</h1>
-        <p class="section__text__p2">Software Engineer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://linkedin.com/in/austin-brock-542153188'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Austin-Brock'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/profilePicture2.jpeg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>4 years <br />Software Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.S in Computer Sciences</p>
-            </div>
+    </div>
+    <div id="retrobg-ground">
+      <div id="retrobg-linesWrap">
+        <div id="retrobg-lines">
+          <div id="retrobg-vlines">
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
+            <div class="retrobg-vline"></div>
           </div>
-          <div class="text-container">
-            <p>
-              Hello, I'm Austin Brock, a passionate and results-driven Computer Science student based in Athens, Georgia. 
-              I'm on a journey to explore the ever-evolving world of technology and create innovative solutions that make a difference.
-              I'm always eager to explore new opportunities and collaborate on exciting projects.
-              If you're looking for a dedicated and skilled Software Engineer to join your team or work on a project together, please don't hesitate to reach out. 
-              Let's connect and make technology work for us
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Swift</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TypeScript</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>UI Design</h3>
-                  
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Express
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                </div>
-              </article>
-            </div>
+          <div id="retrobg-hlines">
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
+            <div class="retrobg-hline"></div>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <!-- After this is the actual container for each individual project container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Project1.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://apps.apple.com/us/app/uga-pre-professional-planner/id1607179396'"
-              >
-                Live Demo
-              </button>
-            </div>
-            <p>This was my first Internship experience where I worked with an engineering team to build and IOS application</p>
-          </div>
-          <!-- After this is the project 2 individual container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Project2.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Austin-Brock?tab=overview&from=2024-01-01&to=2024-01-24'"
-              >
-                Live Demo
-              </button>
-            </div>
-            <p>Started my own personal 100 days of code journey and have made 20+ projects since January 1st 2024</p>
-          </div>
-          <!-- After this is the project 3 individual container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/roleplaygame.jpeg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Austin-Brock/Javascript-role-playing-game'"
-              >
-                Github
-              </button>
-            </div>
-            <p> This is a FreeCodeCamp guided Javascript text based role playing game  </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:austin24brock@gmail.com">Austin24brock@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/austin-brock-542153188">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 Austin Brock. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
-</html>
+      <div id="retrobg-groundShadow"></div>
+    </div>
+  <div>
+        <script src="script.js"></script>
+    </body>
+  </html>
