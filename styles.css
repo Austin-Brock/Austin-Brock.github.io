@@ -179,8 +179,8 @@ body {
     top: 75px; /* This should be adjusted based on the height of #nameTitle */
     left: 10px; /* Align with the left edge of #nameTitle */
     z-index: 10; /* Ensures it's above other elements */
-    height: 200px; /* Your specified dimensions */
-    width: 200px; /* Your specified dimensions */
+    height: 300px; /* Your specified dimensions */
+    width: 300px; /* Your specified dimensions */
     border-radius: 100%; /* Your specified style */
 }
 
