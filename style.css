@@ -370,10 +370,12 @@ article .icon {
 }
 
 .project-img {
+  width: 100%;
+  height: 500px; /* Fixed height */
+  object-fit: cover; /* This will crop the image to fit the box */
   border-radius: 2rem;
-  width: 90%;
-  height: 90%;
 }
+
 
 .project-title {
   margin: 1rem;
