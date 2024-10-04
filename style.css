@@ -437,3 +437,30 @@ footer {
 footer p {
   text-align: center;
 }
+
+/* Daily Quote Section */
+#daily-quote {
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the section */
+  margin: 20px 0; /* Margin around the section */
+  text-align: center; /* Center the text */
+  font-style: italic; /* Italicize the quote text */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#daily-quote blockquote {
+  margin: 0; /* Remove default margin */
+}
+
+#daily-quote p {
+  font-size: 1.2em; /* Increase font size for the quote */
+  color: #333; /* Dark color for text */
+}
+
+#daily-quote footer {
+  margin-top: 10px; /* Space between quote and author */
+  font-size: 1em; /* Normal size for the author name */
+  color: #777; /* Lighter color for the author */
+}
