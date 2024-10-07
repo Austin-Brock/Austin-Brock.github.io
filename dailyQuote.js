@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
-        headers: { 'X-Api-Key': '' }, // Replace with your actual API key
+        headers: { 'X-Api-Key': process.env.API_KEY }, // Replace with your actual API key
         contentType: 'application/json',
         success: function(result) {
             // Check if result has quotes
