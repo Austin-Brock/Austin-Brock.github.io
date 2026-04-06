@@ -1,399 +1,398 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Austin Brock // Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this line -->
 </head>
+<body>
 
-  <body>
-    <nav id="desktop-nav">
-      <!-- TODO inmplement API to pull in random quotes from a custom api at the top of the page -->
-      <div class="logo">Austin Brock</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Brock</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
 
-    <section id="profile">
-      <div class="section__pic-container">
-          <blockquote>
-              <p id="quote-text">"Your daily inspirational quote will appear here."</p>
-              <footer id="quote-author">- Author Name</footer>
-          </blockquote>
-          <img src="assets/profilePicture3.jpeg" alt="Austin Brock profile picture" />
+  <!-- DESKTOP NAV -->
+  <nav id="desktop-nav">
+    <div class="logo">
+      <span class="logo-prompt">~</span><span class="logo-name">austin-brock</span><span class="blink-cursor">█</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about"><span class="nav-num">01.</span>about</a></li>
+      <li><a href="#experience"><span class="nav-num">02.</span>experience</a></li>
+      <li><a href="#projects"><span class="nav-num">03.</span>projects</a></li>
+      <li><a href="#contact"><span class="nav-num">04.</span>contact</a></li>
+      <li><a href="contact.html" class="nav-resume">resume.pdf ↗</a></li>
+    </ul>
+  </nav>
+
+  <!-- HAMBURGER NAV -->
+  <nav id="hamburger-nav">
+    <div class="logo">
+      <span class="logo-prompt">~</span><span class="logo-name">austin</span>
+    </div>
+    <div class="hamburger-menu">
+      <div class="hamburger-icon" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="menu-links">
+        <li><a href="#about" onclick="toggleMenu()">01. about</a></li>
+        <li><a href="#experience" onclick="toggleMenu()">02. experience</a></li>
+        <li><a href="#projects" onclick="toggleMenu()">03. projects</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">04. contact</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="profile">
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-dots">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <span class="terminal-title">austin@portfolio:~</span>
+      </div>
+      <div class="terminal-body">
+        <div class="terminal-line">
+          <span class="t-prompt">austin@portfolio</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-dollar">$</span>
+          <span class="t-cmd">cat quote.txt</span>
+        </div>
+        <div class="terminal-output">
+          <p id="quote-text" class="t-quote-text">"Your daily inspirational quote will appear here."</p>
+          <footer id="quote-author" class="t-quote-author">— Author Name</footer>
+        </div>
+        <div class="terminal-line">
+          <span class="t-prompt">austin@portfolio</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-dollar">$</span>
+          <span class="t-cmd">whoami --json</span>
+        </div>
+        <div class="json-block">
+          <p class="json-brace">{</p>
+          <p class="json-line"><span class="t-key">"name"</span><span class="t-colon">:</span> <span class="t-string">"Austin Brock"</span><span class="t-comma">,</span></p>
+          <p class="json-line"><span class="t-key">"role"</span><span class="t-colon">:</span> <span class="t-string">"Software Engineer"</span><span class="t-comma">,</span></p>
+          <p class="json-line"><span class="t-key">"location"</span><span class="t-colon">:</span> <span class="t-string">"Athens, Georgia"</span><span class="t-comma">,</span></p>
+          <p class="json-line"><span class="t-key">"experience"</span><span class="t-colon">:</span> <span class="t-number">3</span> <span class="t-comment">// years</span></p>
+          <p class="json-brace">}</p>
+        </div>
+        <div class="terminal-line">
+          <span class="t-prompt">austin@portfolio</span><span class="t-sep">:</span><span class="t-path">~</span><span class="t-dollar">$</span>
+          <span class="t-cursor-blink">█</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-image-frame">
+        <img src="assets/profilePicture3.jpeg" alt="Austin Brock" class="hero-img" />
+        <div class="img-corner tl"></div>
+        <div class="img-corner tr"></div>
+        <div class="img-corner bl"></div>
+        <div class="img-corner br"></div>
+        <div class="img-scanline"></div>
+      </div>
+      <div class="hero-cta">
+        <button class="btn btn-primary" onclick="window.open('contact.html')">
+          <span class="btn-bracket">[</span>&nbsp;view_cv&nbsp;<span class="btn-bracket">]</span>
+        </button>
+        <button class="btn btn-secondary" onclick="location.href='./#contact'">
+          <span class="btn-bracket">[</span>&nbsp;contact&nbsp;<span class="btn-bracket">]</span>
+        </button>
+      </div>
+      <div class="hero-socials">
+        <a href="https://linkedin.com/in/austin-brock-542153188" class="social-link" target="_blank">
+          <span>linkedin</span><span class="social-arr">↗</span>
+        </a>
+        <span class="social-divider">/</span>
+        <a href="https://github.com/Austin-Brock" class="social-link" target="_blank">
+          <span>github</span><span class="social-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-num">// 01.</span>
+      <h2 class="section-title">about_me</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-col">
+        <div class="about-img-wrap">
+          <img src="./assets/profilePicture2.jpeg" alt="Profile picture" class="about-pic" />
+          <div class="about-img-label">profile.jpeg</div>
+        </div>
+      </div>
+      <div class="about-content-col">
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-label">// experience</span>
+            <span class="stat-value">3<span class="stat-unit">yrs</span></span>
+            <span class="stat-desc">software development</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">// education</span>
+            <span class="stat-value">B.S</span>
+            <span class="stat-desc">computer sciences</span>
+          </div>
+        </div>
+        <div class="bio-block">
+          <p class="bio-comment">/* bio */</p>
+          <p class="bio-text">
+            Hello, I'm <span class="bio-highlight">Austin Brock</span>, a passionate and results-driven
+            Software Engineer based in Athens, Georgia. I'm on a journey to explore the ever-evolving
+            world of technology and create innovative solutions that make a difference.
+            I'm always eager to explore new opportunities and collaborate on exciting projects.
+            If you're looking for a dedicated and skilled Software Engineer, don't hesitate to reach out.
+          </p>
+        </div>
+      </div>
+    </div>
+    <a href="#experience" class="scroll-hint">scroll_down() <span class="scroll-arrow">↓</span></a>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-num">// 02.</span>
+      <h2 class="section-title">experience</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-panel">
+        <h3 class="skill-panel-title"><span class="sk-brace">{</span>&nbsp;frontend&nbsp;<span class="sk-brace">}</span></h3>
+        <div class="skill-list">
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">HTML</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:90%"></div></div>
+            <span class="sk-pct">90%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">CSS</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:85%"></div></div>
+            <span class="sk-pct">85%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">JavaScript</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:80%"></div></div>
+            <span class="sk-pct">80%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">React</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:70%"></div></div>
+            <span class="sk-pct">70%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Swift</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:65%"></div></div>
+            <span class="sk-pct">65%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">UI Design</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:75%"></div></div>
+            <span class="sk-pct">75%</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h3 class="skill-panel-title"><span class="sk-brace">{</span>&nbsp;backend&nbsp;<span class="sk-brace">}</span></h3>
+        <div class="skill-list">
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Python</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:75%"></div></div>
+            <span class="sk-pct">75%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Java</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:70%"></div></div>
+            <span class="sk-pct">70%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Node.js</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:72%"></div></div>
+            <span class="sk-pct">72%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Express</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:68%"></div></div>
+            <span class="sk-pct">68%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">SQL</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:78%"></div></div>
+            <span class="sk-pct">78%</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-prompt">$</span>
+            <span class="sk-name">Git</span>
+            <div class="sk-bar"><div class="sk-fill" style="--w:85%"></div></div>
+            <span class="sk-pct">85%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#projects" class="scroll-hint">scroll_down() <span class="scroll-arrow">↓</span></a>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-num">// 03.</span>
+      <h2 class="section-title">projects</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-type">ios_app</span>
+          <span class="project-status st-live">● live</span>
+        </div>
+        <div class="project-img-wrap">
+          <img src="./assets/Project1.jpg" alt="Project 1" class="project-img" />
+          <div class="project-overlay">
+            <a href="https://apps.apple.com/us/app/uga-pre-professional-planner/id1607179396" target="_blank" class="proj-link-btn">open_demo()&nbsp;↗</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">UGA Pre-Professional Planner</h3>
+          <p class="project-desc">First engineering experience working with a team to build an iOS application for UGA students.</p>
+          <div class="project-tags">
+            <span class="tag">Swift</span>
+            <span class="tag">iOS</span>
+            <span class="tag">UIKit</span>
+          </div>
+        </div>
       </div>
 
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Austin Brock</h1>
-        <p class="section__text__p2">Software Engineer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('contact.html')"
-          >
-            View CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-type">challenge</span>
+          <span class="project-status st-live">● live</span>
         </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://linkedin.com/in/austin-brock-542153188'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/Austin-Brock'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/profilePicture2.jpeg"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>3 years <br />Software Development</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>B.S in Computer Sciences</p>
-            </div>
+        <div class="project-img-wrap">
+          <img src="./assets/project2Updated.jpeg" alt="Project 2" class="project-img" />
+          <div class="project-overlay">
+            <a href="https://github.com/Austin-Brock?tab=overview&from=2024-01-01&to=2024-01-24" target="_blank" class="proj-link-btn">view_code()&nbsp;↗</a>
           </div>
-          <div class="text-container">
-            <p>
-              Hello, I'm Austin Brock, a passionate and results-driven Software Engineer based in Athens, Georgia. 
-              I'm on a journey to explore the ever-evolving world of technology and create innovative solutions that make a difference.
-              I'm always eager to explore new opportunities and collaborate on exciting projects.
-              If you're looking for a dedicated and skilled Software Engineer to join your team, please don't hesitate to reach out. 
-              Let's connect and make technology work for us
-            </p>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">100 Days of Code</h3>
+          <p class="project-desc">Personal challenge — 20+ projects completed since January 1st 2024.</p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Python</span>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Swift</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>React</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>UI Design</h3>
-                  
-                </div>
-              </article>
-            </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-type">ml_model</span>
+          <span class="project-status st-wip">◌ in_progress</span>
+        </div>
+        <div class="project-img-wrap">
+          <img src="./assets/inProgress.jpeg" alt="Project 3" class="project-img" />
+          <div class="project-overlay">
+            <span class="proj-link-btn disabled">building...&nbsp;⚙</span>
           </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SQL</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node</h3>
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Express
-                  
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                </div>
-              </article>
-            </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-name">Flight Delay Predictor</h3>
+          <p class="project-desc">Machine learning model to predict delayed flights for Hartsfield-Jackson Airport.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">pandas</span>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <!-- After this is the actual container for each individual project container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Project1.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://apps.apple.com/us/app/uga-pre-professional-planner/id1607179396'"
-              >
-                Live Demo
-              </button>
-            </div>
-            <p>This was my first engineering experience where I worked with a team to build an IOS application</p>
+
+    </div>
+    <a href="#contact" class="scroll-hint">scroll_down() <span class="scroll-arrow">↓</span></a>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">// 04.</span>
+      <h2 class="section-title">contact</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="contact-wrap">
+      <div class="terminal-window contact-terminal">
+        <div class="terminal-titlebar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
           </div>
-          <!-- After this is the project 2 individual container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project2Updated.jpeg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Austin-Brock?tab=overview&from=2024-01-01&to=2024-01-24'"
-              >
-                Github
-              </button>
-            </div>
-            <p>Started my own personal 100 days of code journey and have made 20+ projects since January 1st 2024</p>
-          </div>
-          <!-- After this is the project 3 individual container -->
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/inProgress.jpeg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href=''"
-              >
-                Github
-              </button>
-            </div>
-            <p> IN PROGRESS</p>
-            <p>Machine learning project to predict delayed flights for Hartsfield Jackson Airport </p>
+          <span class="terminal-title">send_message.sh</span>
+        </div>
+        <div class="terminal-body contact-body">
+          <p class="t-comment">// open to new opportunities — reach out anytime</p>
+          <div class="contact-links">
+            <a href="mailto:austin24brock@gmail.com" class="contact-row">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">mailto</span>
+              <span class="c-arg">"austin24brock@gmail.com"</span>
+              <span class="c-arr">↗</span>
+            </a>
+            <a href="https://www.linkedin.com/in/austin-brock-542153188" target="_blank" class="contact-row">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">open</span>
+              <span class="c-arg">"linkedin.com/in/austin-brock"</span>
+              <span class="c-arr">↗</span>
+            </a>
+            <a href="https://github.com/Austin-Brock" target="_blank" class="contact-row">
+              <span class="c-prompt">$</span>
+              <span class="c-cmd">open</span>
+              <span class="c-arg">"github.com/Austin-Brock"</span>
+              <span class="c-arr">↗</span>
+            </a>
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:austin24brock@gmail.com">Austin24brock@gmail.com</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/austin-brock-542153188">LinkedIn</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 Austin Brock. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-    <script src="dailyQuote.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <!-- STATUS BAR FOOTER -->
+  <footer class="status-bar">
+    <div class="sb-left">
+      <span class="sb-item sb-branch">⎇ main</span>
+      <span class="sb-item">0 errors</span>
+      <span class="sb-item">0 warnings</span>
+    </div>
+    <div class="sb-center">Austin Brock Portfolio</div>
+    <div class="sb-right">
+      <span class="sb-item">UTF-8</span>
+      <span class="sb-item">v2.0</span>
+      <span class="sb-item">© 2024</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="dailyQuote.js"></script>
+</body>
 </html>

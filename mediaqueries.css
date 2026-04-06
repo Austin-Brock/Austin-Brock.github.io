@@ -1,103 +1,85 @@
-@media screen and (max-width: 1400px) {
-    #profile {
-      height: 83vh;
-      margin-bottom: 6rem;
-    }
-    .about-containers {
-      flex-wrap: wrap;
-    }
-    #contact,
-    #projects {
-      height: fit-content;
-    }
+/* ============================================================
+   MEDIAQUERIES — AUSTIN BROCK PORTFOLIO v2
+   ============================================================ */
+
+/* ─── TABLET (≤ 1200px) ──────────────────────────────────── */
+@media (max-width: 1200px) {
+  #desktop-nav   { display: none; }
+  #hamburger-nav { display: flex; }
+
+  section { padding: 6rem 3rem 3rem; }
+
+  #profile {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding-top: 5rem;
+    min-height: auto;
+    padding-bottom: 4rem;
   }
-  
-  @media screen and (max-width: 1200px) {
-    #desktop-nav {
-      display: none;
-    }
-    #hamburger-nav {
-      display: flex;
-    }
-    #experience,
-    .experience-details-container {
-      margin-top: 2rem;
-    }
-    #profile,
-    .section-container {
-      display: block;
-    }
-    .arrow {
-      display: none;
-    }
-    section,
-    .section-container {
-      height: fit-content;
-    }
-    section {
-      margin: 0 5%;
-    }
-    .section__pic-container {
-      width: 275px;
-      height: 275px;
-      margin: 0 auto 2rem;
-    }
-    .about-containers {
-      margin-top: 0;
-    }
+
+  .terminal-window { max-width: 100%; width: 100%; }
+
+  .hero-right { width: 100%; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  @media screen and (max-width: 600px) {
-    #contact,
-    footer {
-      height: 40vh;
-    }
-    #profile {
-      height: 83vh;
-      margin-bottom: 0;
-    }
-    article {
-      font-size: 1rem;
-    }
-    footer nav {
-      height: fit-content;
-      margin-bottom: 2rem;
-    }
-    .about-containers,
-    .contact-info-upper-container,
-    .btn-container {
-      flex-wrap: wrap;
-    }
-    .contact-info-container {
-      margin: 0;
-    }
-    .contact-info-container p,
-    .nav-links li a {
-      font-size: 1rem;
-    }
-    .experience-sub-title {
-      font-size: 1.25rem;
-    }
-    .logo {
-      font-size: 1.5rem;
-    }
-    .nav-links {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    .section__pic-container {
-      width: auto;
-      height: 46vw;
-      justify-content: center;
-    }
-    .section__text__p2 {
-      font-size: 1.25rem;
-    }
-    .title {
-      font-size: 2rem;
-    }
-    .text-container {
-      text-align: justify;
-    }
+
+  .about-pic { height: 280px; }
+
+  .skills-grid { gap: 1.5rem; }
+
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── MOBILE (≤ 768px) ───────────────────────────────────── */
+@media (max-width: 768px) {
+  section { padding: 5rem 1.5rem 3rem; }
+
+  .section-title { font-size: 1.3rem; }
+
+  #profile { gap: 2rem; }
+
+  .hero-image-frame { width: 220px; height: 220px; }
+
+  .terminal-body { padding: 1rem 1.1rem; font-size: .75rem; }
+
+  .about-stats { grid-template-columns: 1fr 1fr; }
+
+  .stat-value { font-size: 1.5rem; }
+
+  .skills-grid { grid-template-columns: 1fr; }
+
+  .skill-row {
+    grid-template-columns: 16px 90px 1fr 32px;
+    gap: .5rem;
   }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  .project-img-wrap { height: 200px; }
+
+  .sb-center { display: none; }
+  .sb-left   { gap: .6rem; }
+  .sb-right  { gap: .6rem; }
+}
+
+/* ─── SMALL MOBILE (≤ 480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  section { padding: 5rem 1rem 2.5rem; }
+
+  .hero-image-frame { width: 180px; height: 180px; }
+
+  .hero-cta { flex-direction: column; width: 100%; align-items: center; }
+
+  .btn { width: 180px; text-align: center; }
+
+  .about-stats { grid-template-columns: 1fr; }
+
+  .skill-row { grid-template-columns: 16px 80px 1fr; }
+  .sk-pct    { display: none; }
+
+  .contact-row { font-size: .72rem; flex-wrap: wrap; }
+  .c-arg       { font-size: .68rem; }
+}
