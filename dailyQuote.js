@@ -36,7 +36,8 @@ const quotes = [
     { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
     { text: "Perseverance is not a long race; it is many short races one after the other.", author: "Walter Elliot" },
     { text: "Dream big and dare to fail.", author: "Norman Vaughan" },
-    { text: "Success is not how high you have climbed, but how you make a positive difference to the world.", author: "Roy T. Bennett" }
+    { text: "Success is not how high you have climbed, but how you make a positive difference to the world.", author: "Roy T. Bennett" },
+    { text: "There are no solutions only trade offs. But you trade to get the best trade off you can, and thats all you can hope for.", author: "Thomas Sowell" },
 ];
 
 // Function to get today's quote based on the current date
