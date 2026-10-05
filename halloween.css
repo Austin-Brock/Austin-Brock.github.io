@@ -1,0 +1,213 @@
+/* ============================================================
+   HALLOWEEN OVERLAY THEME  —  seasonal, fully self-contained
+   ============================================================
+
+   TO TURN OFF (November 1st):
+     1. remove  class="halloween"  from the <html> tag
+     2. remove  <link rel="stylesheet" href="halloween.css" />
+   ...in index.html and contact.html. Nothing else to undo —
+   this file never edits base styles, it only overrides them.
+
+   Everything below is scoped to html.halloween, which outranks
+   :root, so the base tokens in style.css stay untouched.
+   ============================================================ */
+
+/* ─── TOKENS: cyan terminal → pumpkin & ghost ────────────── */
+html.halloween {
+  /* purple-black night instead of blue-black */
+  --bg:        #0a0710;
+  --bg2:       #100a18;
+  --bg3:       #17101f;
+  --bg4:       #1e1529;
+  --border:    #2a1f38;
+  --border2:   #3a2b4d;
+
+  /* pumpkin replaces cyan as the primary accent */
+  --cyan:      #ff7518;
+  --cyan-dim:  #c85a12;
+
+  --purple:    #a970ff;   /* ghost / witch */
+  --green:     #7ddc3f;   /* slime */
+  --green-br:  #9bed5c;
+  --yellow:    #ffb627;   /* candy corn */
+  --orange:    #ff9f45;
+  --red:       #e8453c;   /* blood */
+
+  /* faintly lavender text reads warmer on a purple ground
+     and lifts --text-dim from ~3.6:1 to ~4.8:1 contrast */
+  --text:      #d5cde0;
+  --text-dim:  #8a7a9c;
+  --text-br:   #f0eaf7;
+}
+
+/* ─── BACKGROUND EFFECTS ─────────────────────────────────── */
+html.halloween .grid-bg {
+  background-image:
+    linear-gradient(rgba(255,117,24,.030) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,117,24,.030) 1px, transparent 1px);
+}
+
+html.halloween .scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,117,24,.014) 2px,
+    rgba(255,117,24,.014) 4px
+  );
+}
+
+/* low creeping fog: warm from above, violet from below */
+html.halloween body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(255,117,24,.055), transparent 70%),
+    radial-gradient(ellipse 100% 45% at 50% 100%, rgba(169,112,255,.065), transparent 70%);
+}
+
+/* ─── TRANSLUCENT PANELS retinted to the new --bg ────────── */
+html.halloween #desktop-nav     { background: rgba(10,7,16,.92); }
+html.halloween #hamburger-nav   { background: rgba(10,7,16,.96); }
+html.halloween .project-overlay { background: rgba(10,7,16,.80); }
+
+/* ─── HARDCODED cyan rgba() → pumpkin ────────────────────── */
+html.halloween .nav-resume:hover      { background: rgba(255,117,24,.12) !important; }
+html.halloween .menu-links a:hover    { background: rgba(255,117,24,.06); }
+html.halloween .btn-primary:hover     { background: rgba(255,117,24,.12);
+                                        box-shadow: 0 0 18px rgba(255,117,24,.25); }
+html.halloween .project-card:hover    { box-shadow: 0 8px 32px rgba(255,117,24,.10); }
+html.halloween .proj-link-btn         { background: rgba(255,117,24,.12); }
+html.halloween .proj-link-btn:hover   { background: rgba(255,117,24,.22); }
+html.halloween .tag                   { border-color: rgba(255,117,24,.32); }
+html.halloween .contact-row:hover     { border-color: rgba(255,117,24,.32); }
+
+html.halloween .img-scanline {
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(255,117,24,.05) 3px, rgba(255,117,24,.05) 4px
+  );
+}
+
+/* ─── PHOTOS: a touch of warm candlelight ────────────────── */
+html.halloween .hero-img    { filter: grayscale(30%) contrast(1.10) sepia(12%); }
+html.halloween .project-img { filter: grayscale(32%) sepia(14%); }
+html.halloween .project-card:hover .project-img { filter: grayscale(0%) sepia(0%); }
+
+/* window chrome dot */
+html.halloween .dot-green { background: #7ddc3f; }
+
+/* ─── CANDLELIGHT FLICKER ────────────────────────────────── */
+/* the terminal glow breathes like it's lit by a candle */
+@keyframes hw-candle {
+  0%, 100% { box-shadow: 0 0 48px rgba(255,117,24,.11), 0 20px 60px rgba(0,0,0,.65); }
+  28%      { box-shadow: 0 0 38px rgba(255,117,24,.07), 0 20px 60px rgba(0,0,0,.65); }
+  46%      { box-shadow: 0 0 64px rgba(255,117,24,.16), 0 20px 60px rgba(0,0,0,.65); }
+  61%      { box-shadow: 0 0 34px rgba(255,117,24,.06), 0 20px 60px rgba(0,0,0,.65); }
+  79%      { box-shadow: 0 0 55px rgba(255,117,24,.13), 0 20px 60px rgba(0,0,0,.65); }
+}
+
+html.halloween .terminal-window {
+  animation: hw-candle 5.5s ease-in-out infinite;
+}
+
+/* .contact-terminal sets its own box-shadow in style.css; the
+   animation above outranks it while running, but state it plainly
+   so the colour never depends on animation priority. */
+html.halloween .contact-terminal {
+  box-shadow: 0 0 40px rgba(255,117,24,.09), 0 16px 48px rgba(0,0,0,.55);
+}
+
+/* the logo buzzes like a failing neon sign — rare, brief dips */
+@keyframes hw-neon {
+  0%, 90%, 100% { opacity: 1;   text-shadow: 0 0 9px rgba(255,117,24,.55); }
+  91%           { opacity: .5;  text-shadow: none; }
+  92%           { opacity: 1;   text-shadow: 0 0 9px rgba(255,117,24,.55); }
+  94%           { opacity: .35; text-shadow: none; }
+  95%           { opacity: 1;   text-shadow: 0 0 9px rgba(255,117,24,.55); }
+}
+
+html.halloween .logo-name {
+  animation: hw-neon 8s linear infinite;
+}
+
+/* section numbers get a faint pumpkin halo */
+html.halloween .section-num {
+  text-shadow: 0 0 10px rgba(255,117,24,.35);
+  opacity: .85;
+}
+
+/* ─── SEASONAL GLYPHS ────────────────────────────────────── */
+html.halloween .logo::after {
+  content: " 🎃";
+  margin-left: .35rem;
+}
+
+html.halloween .sb-center::before { content: "🎃\00a0"; }
+html.halloween .sb-center::after  { content: "\00a0👻"; }
+
+/* ─── SEASONAL COPY ──────────────────────────────────────── */
+/* Swapped in CSS rather than in the markup so the toggle at the
+   top of this file reverts the wording too. font-size:0 collapses
+   the original string; ::before supplies the replacement at the
+   size the span would have inherited. */
+html.halloween #profile .t-prompt { font-size: 0; }
+html.halloween #profile .t-prompt::before {
+  content: "austin@haunted";
+  font-size: .82rem;
+}
+
+html.halloween #profile .terminal-title { font-size: 0; }
+html.halloween #profile .terminal-title::before {
+  content: "austin@haunted:~";
+  font-size: .72rem;
+}
+
+html.halloween #contact .terminal-title { font-size: 0; }
+html.halloween #contact .terminal-title::before {
+  content: "summon_austin.sh";
+  font-size: .72rem;
+}
+
+/* ─── ACCESSIBILITY ──────────────────────────────────────── */
+/* flicker is decorative; honour a reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html.halloween .terminal-window,
+  html.halloween .logo-name {
+    animation: none;
+  }
+  html.halloween .terminal-window {
+    box-shadow: 0 0 48px rgba(255,117,24,.11), 0 20px 60px rgba(0,0,0,.65);
+  }
+  html.halloween .logo-name {
+    text-shadow: 0 0 9px rgba(255,117,24,.55);
+  }
+}
+
+/* ─── RESUME PAGE (contact.html) ─────────────────────────── */
+/* NOTE: .btn-color-2 has no definition in style.css, so this
+   back link renders as a default browser link year-round. The
+   rules below only dress it for the season — worth giving it a
+   permanent home in style.css at some point. */
+html.halloween .btn-color-2 {
+  display: inline-block;
+  margin: 1.4rem 0 1rem 1.4rem;
+  padding: .55rem 1.2rem;
+  font-family: var(--font);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--cyan);
+  background: rgba(255,117,24,.10);
+  border: 1px solid var(--cyan);
+  transition: background 180ms, box-shadow 180ms;
+}
+
+html.halloween .btn-color-2:hover {
+  background: rgba(255,117,24,.22);
+  box-shadow: 0 0 18px rgba(255,117,24,.25);
+}
+
+html.halloween .btn-color-2::before { content: "\00a0←\00a0"; }
