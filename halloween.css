@@ -211,3 +211,79 @@ html.halloween .btn-color-2:hover {
 }
 
 html.halloween .btn-color-2::before { content: "\00a0←\00a0"; }
+
+/* ─── INTERACTIVE SPIDER (built by halloween.js) ─────────── */
+/* Hangs from the header's bottom edge. The wrapper ignores all
+   pointer events so it never blocks the page — only the spider
+   group itself is grabbable. */
+.hw-spider-wrap {
+  position: fixed;
+  top: 3.5rem;            /* nav height, identical at every breakpoint */
+  left: 20%;
+  z-index: 998;           /* beneath the nav (1000), above sections (1) */
+  pointer-events: none;
+}
+
+.hw-spider-wrap svg { display: block; overflow: visible; }
+
+.hw-web line,
+.hw-web path {
+  fill: none;
+  stroke: rgba(214,205,224,.28);
+  stroke-width: 1;
+}
+
+.hw-thread {
+  stroke: rgba(214,205,224,.38);
+  stroke-width: 1;
+}
+
+.hw-spider {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;     /* let a touch drag the spider, not scroll the page */
+}
+
+.hw-spider-wrap.is-grabbed .hw-spider { cursor: grabbing; }
+
+.hw-legs path {
+  fill: none;
+  stroke: #6b5a80;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke 200ms;
+}
+
+.hw-abdomen { fill: #241a2e; stroke: #6b5a80; stroke-width: 1.2; }
+.hw-head    { fill: #2d2139; stroke: #6b5a80; stroke-width: 1.2; }
+.hw-mark    { fill: var(--cyan); opacity: .85; }
+.hw-eye     { fill: var(--cyan); filter: drop-shadow(0 0 3px rgba(255,117,24,.9)); }
+
+/* it notices you */
+.hw-spider-wrap.is-hover   .hw-legs path,
+.hw-spider-wrap.is-grabbed .hw-legs path { stroke: var(--purple); }
+.hw-spider-wrap.is-hover   .hw-eye,
+.hw-spider-wrap.is-grabbed .hw-eye       { fill: #ffd166; }
+
+@keyframes hw-legtwitch {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(1.07); }
+}
+
+.hw-spider-wrap.is-hover .hw-legs {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hw-legtwitch .5s ease-in-out infinite;
+}
+
+@media (max-width: 600px) {
+  .hw-spider-wrap {
+    left: 10%;
+    transform: scale(.8);
+    transform-origin: top center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-spider-wrap.is-hover .hw-legs { animation: none; }
+}
