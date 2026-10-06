@@ -46,7 +46,16 @@ const quotes = [
 // Function to get today's quote based on the current date
 function getDailyQuote() {
     const today = new Date();
-    const index = today.getDate() % quotes.length; // Use the day of the month to select a quote
+    // Day of the year, not day of the month: getDate() only ever returns 1-31,
+    // which is less than quotes.length, so the modulo never wrapped and every
+    // quote past index 31 (plus index 0) could never be picked.
+    // Counted via Date.UTC so a daylight-saving shift can't make two
+    // consecutive days resolve to the same quote.
+    const dayOfYear = Math.floor(
+        (Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) -
+         Date.UTC(today.getFullYear(), 0, 0)) / 86400000
+    );
+    const index = dayOfYear % quotes.length;
     return quotes[index];
 }
 
