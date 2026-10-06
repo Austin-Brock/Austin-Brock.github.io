@@ -30,6 +30,7 @@ const quotes = [
     { text: "If you can dream it, you can do it.", author: "Walt Disney" },
     { text: "Keep your face always toward the sunshine—and shadows will fall behind you.", author: "Walt Whitman" },
     { text: "The only way to achieve the impossible is to believe it is possible.", author: "Charles Kingsleigh" },
+    { text: "Let the young man in his desperation go out and hunt. If he kills the elephant, his poverty ends. If the elephant kills him, his poverty ends.", author: "African Proverb" },
     { text: "Success is not in what you have, but who you are.", author: "Bo Bennett" },
     { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
     { text: "Do not wait to strike till the iron is hot, but make it hot by striking.", author: "William Butler Yeats" },
