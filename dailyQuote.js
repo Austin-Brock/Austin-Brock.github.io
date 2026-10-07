@@ -40,6 +40,7 @@ const quotes = [
     { text: "Success is not how high you have climbed, but how you make a positive difference to the world.", author: "Roy T. Bennett" },
     { text: "There are no solutions only trade offs. But you trade to get the best trade off you can, and thats all you can hope for.", author: "Thomas Sowell" },
     { text: "The only man who never makes mistakes is the man who never does anything.", author: "Theodore Roosevelt" },
+    { text: "It’s only a dream if you leave it in the pillow", author: "Chuck Demmings" },
     
 ];
 
