@@ -559,6 +559,33 @@ section {
 
 .sk-pct { font-size: .68rem; color: var(--text-dim); text-align: right; }
 
+/* capability rows — no self-rated bars, just what the stack actually is */
+.skill-panel.is-wide { grid-column: 1 / -1; }
+
+.cap-list { display: flex; flex-direction: column; gap: .7rem; }
+
+/* the wide panel has room for two columns of capabilities */
+.skill-panel.is-wide .cap-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem 2.5rem;
+}
+
+.cap-row {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: .6rem;
+  align-items: baseline;
+}
+
+.cap-text {
+  font-size: .82rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.cap-dim { color: var(--text-dim); }
+
 /* ─── PROJECTS SECTION ───────────────────────────────────── */
 #projects {
   background: var(--bg2);
