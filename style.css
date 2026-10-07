@@ -497,6 +497,7 @@ section {
 .bio-comment { font-size: .78rem; color: var(--text-dim); font-style: italic; }
 
 .bio-text { font-size: .88rem; line-height: 1.85; color: var(--text); }
+.bio-text + .bio-text { margin-top: .55rem; }
 
 .bio-highlight { color: var(--cyan); font-weight: 600; }
 
