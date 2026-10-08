@@ -1,6 +1,9 @@
 /* ============================================================
-   HALLOWEEN — interactive spider hanging off the header
+   HALLOWEEN — seasonal page behaviour
    ============================================================
+
+   Interactive spider hanging off the header, plus the tab-title
+   haunting further down.
 
    Builds a small orb web tucked under the header's bottom edge,
    with a spider on a dragline you can play with:
@@ -176,6 +179,19 @@
   spider.addEventListener('pointerleave', function () {
     hovering = false;
     wrap.classList.remove('is-hover');
+  });
+
+  /* ── tab-title haunting ─────────────────────────────────── */
+  /* look away and the page notices */
+  var realTitle = document.title;
+  var AWAY = '\uD83D\uDC7B come back\u2026';
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      realTitle = document.title === AWAY ? realTitle : document.title;
+      document.title = AWAY;
+    } else {
+      document.title = realTitle;
+    }
   });
 
   /* ── mount ──────────────────────────────────────────────── */
