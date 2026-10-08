@@ -202,13 +202,15 @@
   });
 
   /* ── quote glitch ───────────────────────────────────────── */
-  /* Every so often the daily quote briefly corrupts, then resolves.
-     The text is re-read at each glitch rather than cached, because
-     dailyQuote.js writes it on DOMContentLoaded too and we must not
-     restore a stale value. */
+  /* Roughly two seconds of corruption a minute. The text is re-read at
+     each glitch rather than cached, because dailyQuote.js writes it on
+     DOMContentLoaded too and restoring a stale value would stick. */
   (function haunt() {
-    var GLYPHS = '!<>-_\\/[]{}\u2014=+*^?#\u2591\u2592\u2593';
-    var node = null;
+    var GLYPHS = '!<>-_\\/[]{}—=+*^?#░▒▓';
+    var FRAME = 55;
+    var FRAMES = Math.round(2000 / FRAME);        /* ~2s of glitch */
+    var SETTLE = Math.round(FRAMES * 0.75);       /* jitter, then heal */
+    var first = true;
 
     function scramble(text, intensity) {
       var out = '';
@@ -222,24 +224,33 @@
     }
 
     function glitch() {
-      node = document.getElementById('quote-text');
+      var node = document.getElementById('quote-text');
       if (!node || reduce.matches) return schedule();
 
       var truth = node.textContent;
-      var steps = 5, i = 0;
+      var i = 0;
       var tick = setInterval(function () {
         i++;
-        if (i >= steps) {
+        if (i >= FRAMES) {
           clearInterval(tick);
-          node.textContent = truth;        /* always resolve to the real text */
+          node.textContent = truth;               /* always resolve to the real text */
           return schedule();
         }
-        node.textContent = scramble(truth, 0.28 * (1 - i / steps));
-      }, 55);
+        /* hold a jittering corruption, then decay out over the last quarter
+           so it reads as possessed rather than as a slow dissolve */
+        var intensity = (i < SETTLE)
+          ? 0.30 + Math.random() * 0.22
+          : 0.45 * (1 - (i - SETTLE) / (FRAMES - SETTLE));
+        node.textContent = scramble(truth, intensity);
+      }, FRAME);
     }
 
     function schedule() {
-      setTimeout(glitch, 9000 + Math.random() * 11000);   /* 9-20s apart */
+      /* the first one comes early so a visitor actually sees one before
+         they scroll away; after that it settles into roughly a minute */
+      var gap = first ? 8000 : 54000 + Math.random() * 12000;
+      first = false;
+      setTimeout(glitch, gap);
     }
     schedule();
   })();
