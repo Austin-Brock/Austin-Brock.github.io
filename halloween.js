@@ -194,6 +194,49 @@
     }
   });
 
+  /* ── quote glitch ───────────────────────────────────────── */
+  /* Every so often the daily quote briefly corrupts, then resolves.
+     The text is re-read at each glitch rather than cached, because
+     dailyQuote.js writes it on DOMContentLoaded too and we must not
+     restore a stale value. */
+  (function haunt() {
+    var GLYPHS = '!<>-_\\/[]{}\u2014=+*^?#\u2591\u2592\u2593';
+    var node = null;
+
+    function scramble(text, intensity) {
+      var out = '';
+      for (var i = 0; i < text.length; i++) {
+        var c = text.charAt(i);
+        out += (c === ' ' || Math.random() > intensity)
+          ? c
+          : GLYPHS.charAt(Math.floor(Math.random() * GLYPHS.length));
+      }
+      return out;
+    }
+
+    function glitch() {
+      node = document.getElementById('quote-text');
+      if (!node || reduce.matches) return schedule();
+
+      var truth = node.textContent;
+      var steps = 5, i = 0;
+      var tick = setInterval(function () {
+        i++;
+        if (i >= steps) {
+          clearInterval(tick);
+          node.textContent = truth;        /* always resolve to the real text */
+          return schedule();
+        }
+        node.textContent = scramble(truth, 0.28 * (1 - i / steps));
+      }, 55);
+    }
+
+    function schedule() {
+      setTimeout(glitch, 9000 + Math.random() * 11000);   /* 9-20s apart */
+    }
+    schedule();
+  })();
+
   /* ── mount ──────────────────────────────────────────────── */
   function mount() { document.body.appendChild(wrap); }
   if (document.readyState === 'loading') {
