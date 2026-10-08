@@ -255,6 +255,44 @@
     schedule();
   })();
 
+  /* ── ghost peeking out from behind the about photo ──────── */
+  (function peeker() {
+    var holder = document.querySelector('.about-img-wrap');
+    if (!holder) return;
+
+    var GW = 84, GH = 108;
+    var r = GW / 2 - 2;              /* dome radius */
+    var domeY = r + 3;
+    var hemY = GH - 13;
+
+    /* dome across the top, straight sides, scalloped hem */
+    var d = 'M2,' + domeY +
+            ' A' + r + ',' + r + ' 0 0 1 ' + (GW - 2) + ',' + domeY +
+            ' L' + (GW - 2) + ',' + hemY;
+    var BUMPS = 4, step = (GW - 4) / BUMPS;
+    for (var i = 0; i < BUMPS; i++) {
+      var x0 = (GW - 2) - i * step;
+      var x1 = x0 - step;
+      d += ' Q' + ((x0 + x1) / 2).toFixed(1) + ',' + (hemY + 11) +
+           ' '  + x1.toFixed(1) + ',' + hemY;
+    }
+    d += ' L2,' + domeY + ' Z';
+
+    var g = document.createElement('div');
+    g.className = 'hw-ghost';
+    g.setAttribute('aria-hidden', 'true');
+
+    var gsvg = el('svg', { viewBox: '0 0 ' + GW + ' ' + GH, width: GW, height: GH });
+    gsvg.appendChild(el('path', { 'class': 'hw-ghost-body', d: d }));
+    /* face sits right of centre so it lands in the part that shows */
+    gsvg.appendChild(el('ellipse', { 'class': 'hw-ghost-eye', cx: 49, cy: 35, rx: 5.4, ry: 6.5 }));
+    gsvg.appendChild(el('ellipse', { 'class': 'hw-ghost-eye', cx: 67, cy: 35, rx: 5.4, ry: 6.5 }));
+    gsvg.appendChild(el('ellipse', { 'class': 'hw-ghost-mouth', cx: 58, cy: 53, rx: 4.7, ry: 6.4 }));
+    g.appendChild(gsvg);
+
+    holder.appendChild(g);
+  })();
+
   /* ── corner web: a quarter, strung into the top-right ───── */
   var CR = 132;                               /* reach into the corner */
   var cornerWrap = document.createElement('div');
