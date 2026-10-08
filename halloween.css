@@ -287,3 +287,13 @@ html.halloween .btn-color-2::before { content: "\00a0←\00a0"; }
 @media (prefers-reduced-motion: reduce) {
   .hw-spider-wrap.is-hover .hw-legs { animation: none; }
 }
+
+/* ─── HAUNTED STATUS BAR ─────────────────────────────────── */
+/* .sb-left is: [⎇ main] [0 errors] [0 warnings] — the third child
+   becomes the haunting. Same collapse-and-replace trick as the
+   seasonal copy above, so it reverts with the theme. */
+html.halloween .sb-left .sb-item:nth-child(3) { font-size: 0; }
+html.halloween .sb-left .sb-item:nth-child(3)::before {
+  content: "1 haunting";
+  font-size: .67rem;
+}
