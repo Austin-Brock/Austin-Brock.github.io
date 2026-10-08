@@ -297,3 +297,33 @@ html.halloween .sb-left .sb-item:nth-child(3)::before {
   content: "1 haunting";
   font-size: .67rem;
 }
+
+/* ─── COBWEB CORNERS ─────────────────────────────────────── */
+/* A quarter web tucked into a corner, drawn as an inline SVG so it
+   costs no request. Decorative and non-interactive. */
+html.halloween .terminal-window,
+html.halloween .project-card { position: relative; }
+
+html.halloween .terminal-window::before,
+html.halloween .project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 86px;
+  height: 86px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 86 86'%3E%3Cg fill='none' stroke='%23d6cde0' stroke-opacity='.22' stroke-width='1'%3E%3Cpath d='M0 0L86.0 0.0'/%3E%3Cpath d='M0 0L79.5 32.9'/%3E%3Cpath d='M0 0L60.8 60.8'/%3E%3Cpath d='M0 0L32.9 79.5'/%3E%3Cpath d='M0 0L0.0 86.0'/%3E%3Cpath d='M25.8 0.0Q21.3 4.2 23.8 9.9Q18.0 12.0 18.2 18.2Q12.0 18.0 9.9 23.8Q4.2 21.3 0.0 25.8'/%3E%3Cpath d='M44.7 0.0Q36.8 7.3 41.3 17.1Q31.2 20.9 31.6 31.6Q20.9 31.2 17.1 41.3Q7.3 36.8 0.0 44.7'/%3E%3Cpath d='M63.6 0.0Q52.4 10.4 58.8 24.4Q44.4 29.7 45.0 45.0Q29.7 44.4 24.4 58.8Q10.4 52.4 0.0 63.6'/%3E%3Cpath d='M82.6 0.0Q68.0 13.5 76.3 31.6Q57.7 38.5 58.4 58.4Q38.5 57.7 31.6 76.3Q13.5 68.0 0.0 82.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* terminals get it top-left, cards top-right, so a row of cards
+   does not read as the same stamp repeated */
+html.halloween .terminal-window::before { left: 0; }
+html.halloween .project-card::before    { right: 0; transform: scaleX(-1); }
+
+@media (max-width: 600px) {
+  html.halloween .terminal-window::before,
+  html.halloween .project-card::before { width: 58px; height: 58px; }
+}
