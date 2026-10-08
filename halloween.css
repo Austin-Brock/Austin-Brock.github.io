@@ -401,3 +401,54 @@ html.halloween .about-img-wrap:hover .hw-ghost {
 @media (prefers-reduced-motion: reduce) {
   .hw-ghost { animation: none; }
 }
+
+/* ─── HANGING BAT (built by halloween.js) ────────────────── */
+/* Gripping the underside of the nav at its right end, inset far enough
+   to clear the corner web. Swings from the point it holds on by. */
+.hw-bat {
+  position: fixed;
+  top: 3.5rem;             /* nav height */
+  right: 170px;            /* corner web reaches ~132px in */
+  z-index: 998;            /* beneath the nav, above the page */
+  pointer-events: auto;
+  cursor: pointer;
+  transform-origin: top center;
+  animation: hw-dangle 4.6s ease-in-out infinite;
+}
+
+.hw-bat svg { display: block; overflow: visible; }
+
+.hw-bat-line { stroke: rgba(214,205,224,.38); stroke-width: 1; }
+.hw-bat-body { fill: #241a2e; stroke: #6b5a80; stroke-width: 1.1; }
+.hw-bat-wings path { fill: #2d2139; stroke: #6b5a80; stroke-width: 1.1; }
+.hw-bat-eye  { fill: var(--cyan); }
+
+@keyframes hw-dangle {
+  0%, 100% { transform: rotate(-4.5deg); }
+  50%      { transform: rotate(4.5deg); }
+}
+
+/* startled awake when you get close */
+@keyframes hw-flap {
+  0%, 100% { transform: scaleX(1)    translateY(0); }
+  50%      { transform: scaleX(.74)  translateY(-2px); }
+}
+
+.hw-bat:hover .hw-bat-wings {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: hw-flap .26s ease-in-out infinite;
+}
+
+.hw-bat:hover .hw-bat-eye { fill: #ffd166; }
+
+@media (max-width: 1200px) {
+  /* the hamburger nav is narrower; tuck it in and shrink a little */
+  .hw-bat { right: 118px; }
+  .hw-bat svg { width: 54px; height: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hw-bat { animation: none; }
+  .hw-bat:hover .hw-bat-wings { animation: none; }
+}

@@ -293,6 +293,40 @@
     holder.appendChild(g);
   })();
 
+  /* ── bat hanging from the nav's right end ───────────────── */
+  (function hangBat() {
+    var BW = 68, BH = 62;
+    var bat = document.createElement('div');
+    bat.className = 'hw-bat';
+    bat.setAttribute('aria-hidden', 'true');
+
+    var bsvg = el('svg', { viewBox: '0 0 ' + BW + ' ' + BH, width: BW, height: BH });
+
+    /* the thread it grips the header with */
+    bsvg.appendChild(el('line', { 'class': 'hw-bat-line', x1: 34, y1: 0, x2: 34, y2: 13 }));
+
+    /* one wing, drawn once and mirrored — scalloped trailing edge */
+    var WING = 'M28,16 C18,9 9,12 4,21 C10,20 11,23 14,27 ' +
+               'C17,23 20,24 22,28 C24,24 26,23 28,31 Z';
+    var wings = el('g', { 'class': 'hw-bat-wings' });
+    wings.appendChild(el('path', { d: WING }));
+    var right = el('g', { transform: 'translate(' + BW + ',0) scale(-1,1)' });
+    right.appendChild(el('path', { d: WING }));
+    wings.appendChild(right);
+    bsvg.appendChild(wings);
+
+    /* body, then head below it since the bat hangs upside down */
+    bsvg.appendChild(el('ellipse', { 'class': 'hw-bat-body', cx: 34, cy: 25, rx: 7.5, ry: 11 }));
+    bsvg.appendChild(el('path',    { 'class': 'hw-bat-body', d: 'M28.5,40 L26,49 L32,43 Z' }));
+    bsvg.appendChild(el('path',    { 'class': 'hw-bat-body', d: 'M39.5,40 L42,49 L36,43 Z' }));
+    bsvg.appendChild(el('circle',  { 'class': 'hw-bat-body', cx: 34, cy: 37, r: 6.5 }));
+    bsvg.appendChild(el('circle',  { 'class': 'hw-bat-eye', cx: 31.4, cy: 36, r: 1.5 }));
+    bsvg.appendChild(el('circle',  { 'class': 'hw-bat-eye', cx: 36.6, cy: 36, r: 1.5 }));
+
+    bat.appendChild(bsvg);
+    document.body.appendChild(bat);
+  })();
+
   /* ── corner web: a quarter, strung into the top-right ───── */
   var CR = 132;                               /* reach into the corner */
   var cornerWrap = document.createElement('div');
