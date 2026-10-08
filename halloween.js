@@ -38,8 +38,36 @@
   }
   function clamp(v, lo, hi) { return v < lo ? lo : (v > hi ? hi : v); }
 
-  /* polar → cartesian, sweeping the lower half-circle below the anchor */
-  function pt(a, r) { return [AX - Math.cos(a) * r, AY + Math.sin(a) * r]; }
+  /* polar → cartesian, sweeping downward from an arbitrary anchor */
+  function pt(ax, ay, a, r) { return [ax - Math.cos(a) * r, ay + Math.sin(a) * r]; }
+
+  /* Spokes fanning out from (ax,ay) across [from,to], plus strands
+     sagging back toward the anchor. Used for the spider's web (a half
+     circle) and the corner web (a quarter). */
+  function buildWeb(ax, ay, radius, from, to) {
+    var g = el('g', { 'class': 'hw-web' });
+    var SPOKES = 7, ang = [], i;
+    for (i = 0; i < SPOKES; i++) ang.push(from + (to - from) * i / (SPOKES - 1));
+
+    ang.forEach(function (a) {
+      var p = pt(ax, ay, a, radius);
+      g.appendChild(el('line', { x1: ax, y1: ay, x2: p[0].toFixed(2), y2: p[1].toFixed(2) }));
+    });
+
+    [0.34, 0.62, 0.9].forEach(function (f) {
+      var r = radius * f, d = '';
+      for (var j = 0; j < ang.length - 1; j++) {
+        var a = pt(ax, ay, ang[j], r);
+        var b = pt(ax, ay, ang[j + 1], r);
+        var c = pt(ax, ay, (ang[j] + ang[j + 1]) / 2, r * 0.86);
+        if (j === 0) d += 'M' + a[0].toFixed(2) + ',' + a[1].toFixed(2);
+        d += ' Q' + c[0].toFixed(2) + ',' + c[1].toFixed(2) +
+             ' '  + b[0].toFixed(2) + ',' + b[1].toFixed(2);
+      }
+      g.appendChild(el('path', { d: d }));
+    });
+    return g;
+  }
 
   /* ── container ──────────────────────────────────────────── */
   var wrap = document.createElement('div');
@@ -49,29 +77,8 @@
   var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H });
   wrap.appendChild(svg);
 
-  /* ── web: spokes fanning down, plus arcs sagging inward ─── */
-  var web = el('g', { 'class': 'hw-web' });
-  var SPOKES = 7, ang = [];
-  for (var i = 0; i < SPOKES; i++) ang.push(Math.PI * i / (SPOKES - 1));
-
-  ang.forEach(function (a) {
-    var p = pt(a, WEB_R);
-    web.appendChild(el('line', { x1: AX, y1: AY, x2: p[0].toFixed(2), y2: p[1].toFixed(2) }));
-  });
-
-  [0.34, 0.62, 0.9].forEach(function (f) {
-    var r = WEB_R * f, d = '';
-    for (var j = 0; j < ang.length - 1; j++) {
-      var a = pt(ang[j], r);
-      var b = pt(ang[j + 1], r);
-      var c = pt((ang[j] + ang[j + 1]) / 2, r * 0.86);   /* sag toward centre */
-      if (j === 0) d += 'M' + a[0].toFixed(2) + ',' + a[1].toFixed(2);
-      d += ' Q' + c[0].toFixed(2) + ',' + c[1].toFixed(2) +
-           ' '  + b[0].toFixed(2) + ',' + b[1].toFixed(2);
-    }
-    web.appendChild(el('path', { d: d }));
-  });
-  svg.appendChild(web);
+  /* ── the spider's web: a half circle under the header ──── */
+  svg.appendChild(buildWeb(AX, AY, WEB_R, 0, Math.PI));
 
   /* ── dragline ───────────────────────────────────────────── */
   var thread = el('line', { 'class': 'hw-thread', x1: AX, y1: AY, x2: REST_X, y2: REST_Y });
@@ -237,8 +244,24 @@
     schedule();
   })();
 
+  /* ── corner web: a quarter, strung into the top-right ───── */
+  var CR = 132;                               /* reach into the corner */
+  var cornerWrap = document.createElement('div');
+  cornerWrap.className = 'hw-corner-web';
+  cornerWrap.setAttribute('aria-hidden', 'true');
+  var cornerSvg = el('svg', {
+    viewBox: '0 0 ' + CR + ' ' + CR, width: CR, height: CR
+  });
+  /* anchored at its own top-right, sweeping from along-the-top (0) round
+     to straight-down (PI/2) so it hugs the corner instead of spilling out */
+  cornerSvg.appendChild(buildWeb(CR, 0, CR, 0, Math.PI / 2));
+  cornerWrap.appendChild(cornerSvg);
+
   /* ── mount ──────────────────────────────────────────────── */
-  function mount() { document.body.appendChild(wrap); }
+  function mount() {
+    document.body.appendChild(wrap);
+    document.body.appendChild(cornerWrap);
+  }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', mount);
   } else {
