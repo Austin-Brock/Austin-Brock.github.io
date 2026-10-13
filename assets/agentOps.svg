@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 300" width="580" height="300" role="img" aria-label="AgentOps: an agent loop whose tool calls are checked against scopes in application code, with one call denied for a missing permission">
+  <defs>
+    <pattern id="aogrid" width="29" height="29" patternUnits="userSpaceOnUse">
+      <path d="M29 0H0v29" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+    <marker id="aoarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#00b8cc"/>
+    </marker>
+  </defs>
+
+  <rect width="580" height="300" fill="#0d1117"/>
+  <rect width="580" height="300" fill="url(#aogrid)"/>
+
+  <text x="28" y="34" font-family="'Courier New', monospace" font-size="17" fill="#00b8cc" letter-spacing="1.2">// authority_check</text>
+
+  <!-- the agent loop -->
+  <rect x="28" y="56" width="156" height="208" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="114" y="84" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" fill="#6e7681">agent_loop</text>
+  <g font-family="'Courier New', monospace" font-size="15" fill="#c9d1d9" text-anchor="middle">
+    <rect x="62" y="96" width="104" height="30" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="114" y="116">think</text>
+    <rect x="62" y="146" width="104" height="30" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="114" y="166">call</text>
+    <rect x="62" y="196" width="104" height="30" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="114" y="216">observe</text>
+  </g>
+  <line x1="114" y1="126" x2="114" y2="144" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#aoarrow)"/>
+  <line x1="114" y1="176" x2="114" y2="194" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#aoarrow)"/>
+  <path d="M114 226 L114 242 L46 242 L46 111 L54 111" fill="none" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#aoarrow)"/>
+
+  <!-- tool gate -->
+  <line x1="192" y1="160" x2="234" y2="160" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#aoarrow)"/>
+  <text x="213" y="150" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#6e7681">tool</text>
+
+  <g font-family="'Courier New', monospace">
+    <rect x="242" y="78" width="310" height="52" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="256" y="100" font-size="15" fill="#c9d1d9">get_order(4471)</text>
+    <text x="256" y="119" font-size="13" fill="#6e7681">orders:read</text>
+    <text x="538" y="111" font-size="15" fill="#56d364" text-anchor="end">ALLOW</text>
+
+    <rect x="242" y="144" width="310" height="52" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="256" y="166" font-size="15" fill="#c9d1d9">create_refund(42.99)</text>
+    <text x="256" y="185" font-size="13" fill="#6e7681">refunds:write · cap $42.99</text>
+    <text x="538" y="177" font-size="15" fill="#56d364" text-anchor="end">ALLOW</text>
+
+    <rect x="242" y="210" width="310" height="52" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
+    <text x="256" y="232" font-size="15" fill="#c9d1d9">apply_account_credit()</text>
+    <text x="256" y="251" font-size="13" fill="#6e7681">finance:write · not held</text>
+    <text x="538" y="243" font-size="15" fill="#f85149" text-anchor="end">DENY</text>
+  </g>
+</svg>
