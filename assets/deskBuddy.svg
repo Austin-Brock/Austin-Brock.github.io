@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 300" width="580" height="300" role="img" aria-label="Desk Buddy: an animated blinking face on an ST7789 panel, with PIR motion detection triggering audio playback">
+  <defs>
+    <pattern id="dbgrid" width="29" height="29" patternUnits="userSpaceOnUse">
+      <path d="M29 0H0v29" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+    <marker id="dbarrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#00b8cc"/>
+    </marker>
+  </defs>
+
+  <rect width="580" height="300" fill="#0d1117"/>
+  <rect width="580" height="300" fill="url(#dbgrid)"/>
+
+  <text x="28" y="34" font-family="'Courier New', monospace" font-size="17" fill="#00b8cc" letter-spacing="1.2">// motion_to_audio</text>
+
+  <!-- ST7789 panel with the face -->
+  <rect x="28" y="56" width="156" height="208" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="38" y="66" width="136" height="188" fill="#05070a"/>
+  <rect x="55" y="120" width="34" height="46" rx="11" fill="#e6edf3"/>
+  <rect x="123" y="120" width="34" height="46" rx="11" fill="#e6edf3"/>
+  <path d="M74 194 Q106 222 138 194" fill="none" stroke="#e6edf3" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- loop arrow -->
+  <line x1="192" y1="160" x2="234" y2="160" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#dbarrow)"/>
+  <text x="213" y="150" text-anchor="middle" font-family="'Courier New', monospace" font-size="16" fill="#6e7681">tick</text>
+
+  <!-- cooperative loop subsystems -->
+  <g font-family="'Courier New', monospace" font-size="15">
+    <rect x="242" y="78" width="310" height="52" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="256" y="100" fill="#c9d1d9">blink_tick()</text>
+    <rect x="256" y="110" width="220" height="7" fill="#21262d"/>
+    <rect x="262" y="110" width="4" height="7" fill="#3fb950"/>
+    <rect x="291" y="110" width="4" height="7" fill="#3fb950"/>
+    <rect x="337" y="110" width="4" height="7" fill="#3fb950"/>
+    <rect x="353" y="110" width="4" height="7" fill="#3fb950"/>
+    <rect x="404" y="110" width="4" height="7" fill="#3fb950"/>
+    <rect x="449" y="110" width="4" height="7" fill="#3fb950"/>
+    <text x="492" y="117" fill="#56d364">4.2s</text>
+
+    <rect x="242" y="144" width="310" height="52" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="256" y="166" fill="#c9d1d9">pir_motion</text>
+    <polyline points="256,184 320,184 320,170 400,170 400,184 468,184" fill="none" stroke="#00e5ff" stroke-width="2"/>
+    <text x="492" y="183" fill="#00e5ff">HIGH</text>
+
+    <line x1="397" y1="197" x2="397" y2="209" stroke="#00b8cc" stroke-width="1.8" marker-end="url(#dbarrow)"/>
+
+    <rect x="242" y="210" width="310" height="52" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="256" y="228" fill="#c9d1d9">audio.play()</text>
+    <g fill="#00e5ff">
+      <rect x="256" y="243" width="6" height="10"/>
+      <rect x="267" y="237" width="6" height="22"/>
+      <rect x="278" y="236" width="6" height="24"/>
+      <rect x="289" y="239" width="6" height="18"/>
+      <rect x="300" y="236" width="6" height="24"/>
+      <rect x="311" y="241" width="6" height="14"/>
+      <rect x="322" y="244" width="6" height="8"/>
+      <rect x="333" y="237" width="6" height="22"/>
+      <rect x="344" y="240" width="6" height="16"/>
+      <rect x="355" y="236" width="6" height="24"/>
+      <rect x="366" y="243" width="6" height="10"/>
+      <rect x="377" y="238" width="6" height="20"/>
+      <rect x="388" y="242" width="6" height="12"/>
+      <rect x="399" y="239" width="6" height="18"/>
+    </g>
+    <text x="492" y="253" fill="#00e5ff">2/3</text>
+  </g>
+</svg>
