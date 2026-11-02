@@ -41,6 +41,7 @@ const quotes = [
     { text: "There are no solutions only trade offs. But you trade to get the best trade off you can, and thats all you can hope for.", author: "Thomas Sowell" },
     { text: "The only man who never makes mistakes is the man who never does anything.", author: "Theodore Roosevelt" },
     { text: "It’s only a dream if you leave it in the pillow", author: "Chuck Demmings" },
+    { text: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
     
 ];
 
