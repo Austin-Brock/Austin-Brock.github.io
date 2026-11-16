@@ -1,0 +1,351 @@
+/* ============================================================
+   FALL OVERLAY THEME  —  seasonal, fully self-contained
+   ============================================================
+
+   TO TURN OFF (after Thanksgiving):
+     1. remove  class="fall"  from the <html> tag
+     2. remove  <link rel="stylesheet" href="fall.css" />
+     3. remove  <script src="fall.js"></script>   (index.html only)
+   ...in index.html and contact.html. Nothing else to undo —
+   this file never edits base styles, it only overrides them.
+
+   Everything below is scoped to html.fall, which outranks
+   :root, so the base tokens in style.css stay untouched.
+   ============================================================ */
+
+/* ─── TOKENS: cyan terminal → amber & maple ──────────────── */
+html.fall {
+  /* warm bark-brown dusk instead of blue-black */
+  --bg:        #100b07;
+  --bg2:       #17100a;
+  --bg3:       #1f160e;
+  --bg4:       #291d12;
+  --border:    #33261a;
+  --border2:   #4a3725;
+
+  /* golden amber replaces cyan as the primary accent */
+  --cyan:      #f0a030;
+  --cyan-dim:  #c07a1c;
+
+  --purple:    #cf8aa3;   /* cranberry-plum */
+  --green:     #a3b55a;   /* sage / late-season moss */
+  --green-br:  #bccb72;
+  --yellow:    #f2c14e;   /* birch gold */
+  --orange:    #e8703a;   /* burnt orange */
+  --red:       #d9483b;   /* red maple */
+
+  /* cream text reads warmer on a brown ground */
+  --text:      #dcd0c0;
+  --text-dim:  #9a8872;
+  --text-br:   #f5ecdf;
+}
+
+/* ─── BACKGROUND EFFECTS ─────────────────────────────────── */
+html.fall .grid-bg {
+  background-image:
+    linear-gradient(rgba(240,160,48,.030) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240,160,48,.030) 1px, transparent 1px);
+}
+
+html.fall .scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(240,160,48,.014) 2px,
+    rgba(240,160,48,.014) 4px
+  );
+}
+
+/* low golden-hour sun from above, ember glow from below */
+html.fall body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(240,160,48,.070), transparent 70%),
+    radial-gradient(ellipse 100% 45% at 50% 100%, rgba(217,72,59,.060), transparent 70%);
+}
+
+/* ─── TRANSLUCENT PANELS retinted to the new --bg ────────── */
+html.fall #desktop-nav     { background: rgba(16,11,7,.92); }
+html.fall #hamburger-nav   { background: rgba(16,11,7,.96); }
+html.fall .project-overlay { background: rgba(16,11,7,.80); }
+html.fall .about-img-label { background: rgba(16,11,7,.80); }
+
+/* ─── HARDCODED cyan rgba() → amber ──────────────────────── */
+html.fall .nav-resume:hover      { background: rgba(240,160,48,.12) !important; }
+html.fall .menu-links a:hover    { background: rgba(240,160,48,.06); }
+html.fall .btn-primary:hover     { background: rgba(240,160,48,.12);
+                                   box-shadow: 0 0 18px rgba(240,160,48,.25); }
+html.fall .project-card:hover    { box-shadow: 0 8px 32px rgba(240,160,48,.10); }
+html.fall .proj-link-btn         { background: rgba(240,160,48,.12); }
+html.fall .proj-link-btn:hover   { background: rgba(240,160,48,.22); }
+html.fall .tag                   { border-color: rgba(240,160,48,.32); }
+html.fall .contact-row:hover     { border-color: rgba(240,160,48,.32); }
+
+html.fall .img-scanline {
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(240,160,48,.05) 3px, rgba(240,160,48,.05) 4px
+  );
+}
+
+/* ─── PHOTOS: late-afternoon warmth ──────────────────────── */
+html.fall .hero-img    { filter: grayscale(20%) contrast(1.08) sepia(18%); }
+html.fall .about-pic   { filter: grayscale(25%) contrast(1.08) sepia(18%); }
+html.fall .project-img { filter: grayscale(25%) sepia(16%); }
+html.fall .project-card:hover .project-img { filter: grayscale(0%) sepia(0%); }
+
+/* ─── HEARTH GLOW ────────────────────────────────────────── */
+/* the terminal glow breathes slowly, like a fire settling */
+@keyframes fl-hearth {
+  0%, 100% { box-shadow: 0 0 44px rgba(240,160,48,.09), 0 20px 60px rgba(0,0,0,.65); }
+  50%      { box-shadow: 0 0 62px rgba(240,160,48,.15), 0 20px 60px rgba(0,0,0,.65); }
+}
+
+html.fall .terminal-window {
+  animation: fl-hearth 7s ease-in-out infinite;
+}
+
+/* .contact-terminal sets its own box-shadow in style.css; the
+   animation above outranks it while running, but state it plainly
+   so the colour never depends on animation priority. */
+html.fall .contact-terminal {
+  box-shadow: 0 0 40px rgba(240,160,48,.09), 0 16px 48px rgba(0,0,0,.55);
+}
+
+html.fall .logo-name   { text-shadow: 0 0 9px rgba(240,160,48,.45); }
+
+/* section numbers get a faint amber halo */
+html.fall .section-num {
+  text-shadow: 0 0 10px rgba(240,160,48,.35);
+  opacity: .9;
+}
+
+/* ─── SEASONAL GLYPHS ────────────────────────────────────── */
+html.fall .logo::after {
+  content: " 🍂";
+  margin-left: .35rem;
+}
+
+html.fall .sb-center::before { content: "🍂\00a0"; }
+html.fall .sb-center::after  { content: "\00a0🦃"; }
+
+/* ─── SEASONAL COPY ──────────────────────────────────────── */
+/* Swapped in CSS rather than in the markup so the toggle at the
+   top of this file reverts the wording too. font-size:0 collapses
+   the original string; ::before supplies the replacement at the
+   size the span would have inherited. */
+html.fall #profile .t-prompt { font-size: 0; }
+html.fall #profile .t-prompt::before {
+  content: "austin@harvest";
+  font-size: .82rem;
+}
+
+html.fall #profile .terminal-title { font-size: 0; }
+html.fall #profile .terminal-title::before {
+  content: "austin@harvest:~";
+  font-size: .72rem;
+}
+
+html.fall #contact .terminal-title { font-size: 0; }
+html.fall #contact .terminal-title::before {
+  content: "gather_round.sh";
+  font-size: .72rem;
+}
+
+/* .sb-left is: [⎇ main] [0 errors] [0 warnings] — the third child
+   becomes the pie. Same collapse-and-replace trick as above. */
+html.fall .sb-left .sb-item:nth-child(3) { font-size: 0; }
+html.fall .sb-left .sb-item:nth-child(3)::before {
+  content: "1 pie cooling";
+  font-size: .67rem;
+}
+
+/* ─── ACCESSIBILITY ──────────────────────────────────────── */
+/* the glow is decorative; honour a reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html.fall .terminal-window {
+    animation: none;
+    box-shadow: 0 0 48px rgba(240,160,48,.11), 0 20px 60px rgba(0,0,0,.65);
+  }
+}
+
+/* ─── RESUME PAGE (contact.html) ─────────────────────────── */
+/* NOTE: .btn-color-2 has no definition in style.css, so this
+   back link renders as a default browser link year-round. The
+   rules below only dress it for the season. */
+html.fall .btn-color-2 {
+  display: inline-block;
+  margin: 1.4rem 0 1rem 1.4rem;
+  padding: .55rem 1.2rem;
+  font-family: var(--font);
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--cyan);
+  background: rgba(240,160,48,.10);
+  border: 1px solid var(--cyan);
+  transition: background 180ms, box-shadow 180ms;
+}
+
+html.fall .btn-color-2:hover {
+  background: rgba(240,160,48,.22);
+  box-shadow: 0 0 18px rgba(240,160,48,.25);
+}
+
+html.fall .btn-color-2::before { content: "\00a0←\00a0"; }
+
+/* ─── LEAF SPRIG CORNERS ─────────────────────────────────── */
+/* A few fallen leaves tucked into a corner, drawn as an inline SVG
+   so it costs no request. Decorative and non-interactive. */
+html.fall .terminal-window,
+html.fall .project-card { position: relative; }
+
+html.fall .terminal-window::before,
+html.fall .project-card::before {
+  content: '';
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 66 66'%3E%3Cg opacity='.92'%3E%3Cg transform='translate%2815 44%29 rotate%28-75%29 scale%281.05%29'%3E%3Cpath d='M0,7 L0,14' stroke='%236b4423' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M0,-13 C8,-7 8,5 0,10 C-8,5 -8,-7 0,-13 Z' fill='%23c0392b' stroke='%23c0392b' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath d='M0,8 L0,-9 M0,3 L6,-2 M0,3 L-6,-2' fill='none' stroke='%23000' stroke-opacity='.24' stroke-width='.8' stroke-linecap='round'/%3E%3C/g%3E%3Cg transform='translate%2845 15%29 rotate%2828%29 scale%281.05%29'%3E%3Cpath d='M0,7 L0,14' stroke='%236b4423' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M0,-14 L3,-8 L7,-10 L6,-4 L12,-5 L9,0 L13,3 L7,4 L8,9 L2,7 L0,8 L-2,7 L-8,9 L-7,4 L-13,3 L-9,0 L-12,-5 L-6,-4 L-7,-10 L-3,-8 Z' fill='%23e0a526' stroke='%23e0a526' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath d='M0,8 L0,-9 M0,3 L6,-2 M0,3 L-6,-2' fill='none' stroke='%23000' stroke-opacity='.24' stroke-width='.8' stroke-linecap='round'/%3E%3C/g%3E%3Cg transform='translate%2821 21%29 rotate%28-32%29 scale%281.4%29'%3E%3Cpath d='M0,7 L0,14' stroke='%236b4423' stroke-width='1.4' stroke-linecap='round'/%3E%3Cpath d='M0,-14 L3,-8 L7,-10 L6,-4 L12,-5 L9,0 L13,3 L7,4 L8,9 L2,7 L0,8 L-2,7 L-8,9 L-7,4 L-13,3 L-9,0 L-12,-5 L-6,-4 L-7,-10 L-3,-8 Z' fill='%23d9622b' stroke='%23d9622b' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath d='M0,8 L0,-9 M0,3 L6,-2 M0,3 L-6,-2' fill='none' stroke='%23000' stroke-opacity='.24' stroke-width='.8' stroke-linecap='round'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* cards get it top-right; terminals bottom-right, clear of the
+   window dots and the prompt text */
+html.fall .project-card::before    { top: 0; right: 0; transform: scaleX(-1); }
+html.fall .terminal-window::before { bottom: 0; right: 0; transform: rotate(180deg); }
+
+@media (max-width: 600px) {
+  html.fall .terminal-window::before,
+  html.fall .project-card::before { width: 46px; height: 46px; }
+}
+
+/* ─── FALLING LEAVES (built by fall.js) ──────────────────── */
+/* A handful of leaves drifting down the viewport. The layer ignores
+   all pointer events, so it never blocks the page. */
+.fl-leaves {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 998;           /* beneath the nav (1000), above sections (1) */
+}
+
+.fl-leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.fl-leaf svg { display: block; overflow: visible; }
+
+/* ─── HANGING ACORN (built by fall.js) ───────────────────── */
+/* Hangs from the header's bottom edge. The wrapper ignores all
+   pointer events — only the acorn itself is grabbable. */
+.fl-acorn-wrap {
+  position: fixed;
+  top: 3.5rem;            /* nav height, identical at every breakpoint */
+  left: 20%;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.fl-acorn-wrap svg { display: block; overflow: visible; }
+
+.fl-thread { stroke: rgba(220,208,192,.40); stroke-width: 1; }
+.fl-twig   { fill: none; stroke: #6b4423; stroke-width: 2.4; stroke-linecap: round; }
+
+.fl-acorn {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;     /* let a touch drag the acorn, not scroll the page */
+}
+
+.fl-acorn-wrap.is-grabbed .fl-acorn { cursor: grabbing; }
+
+.fl-acorn-nut   { fill: #b9792f; stroke: #7a4a21; stroke-width: 1; transition: fill 200ms; }
+.fl-acorn-cap   { fill: #6b4423; stroke: #4a2e16; stroke-width: 1; }
+.fl-acorn-hatch { fill: none; stroke: #4a2e16; stroke-width: .8; }
+.fl-acorn-stem  { stroke: #4a2e16; stroke-width: 2; stroke-linecap: round; }
+.fl-acorn-shine { fill: #f5d9a3; opacity: .45; }
+
+.fl-acorn-wrap.is-hover   .fl-acorn-nut,
+.fl-acorn-wrap.is-grabbed .fl-acorn-nut { fill: #d99536; }
+
+@media (max-width: 600px) {
+  .fl-acorn-wrap {
+    left: 10%;
+    transform: scale(.8);
+    transform-origin: top center;
+  }
+}
+
+/* ─── CORNER BRANCH (built by fall.js) ───────────────────── */
+/* Reaching in from the top-right, below the header, with the last
+   leaves of the season still holding on. */
+.fl-branch {
+  position: fixed;
+  top: 3.5rem;            /* nav height */
+  right: 0;
+  z-index: 998;
+  pointer-events: none;
+  transform-origin: top right;
+  animation: fl-sway 6s ease-in-out infinite;
+}
+
+.fl-branch svg { display: block; overflow: visible; }
+.fl-branch-wood { fill: none; stroke: #6b4423; stroke-linecap: round; }
+
+@keyframes fl-sway {
+  0%, 100% { transform: rotate(-1.4deg); }
+  50%      { transform: rotate(1.6deg); }
+}
+
+@media (max-width: 600px) {
+  .fl-branch { animation: none; transform: scale(.65); }
+}
+
+/* ─── PEEKING TURKEY (built by fall.js) ──────────────────── */
+/* Tucked behind the about photo so only its fan and head show over
+   the top edge. isolation + an explicit z-index on the photo keep it
+   behind the image but still above the section background. */
+html.fall .about-img-wrap { isolation: isolate; }
+html.fall .about-pic { position: relative; z-index: 1; }
+/* the caption overlays the photo, so it has to clear the raised image */
+html.fall .about-img-label { z-index: 2; }
+
+.fl-turkey {
+  position: absolute;
+  z-index: 0;              /* behind the photo */
+  top: -68px;
+  right: 34px;
+  pointer-events: none;
+  animation: fl-bob 3.6s ease-in-out infinite;
+}
+
+.fl-turkey svg { display: block; overflow: visible; }
+
+@keyframes fl-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* pops up a little further when you look at the photo */
+html.fall .about-img-wrap:hover .fl-turkey {
+  animation-play-state: paused;
+  transform: translateY(-16px);
+  transition: transform 420ms cubic-bezier(.34,1.3,.64,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fl-branch,
+  .fl-turkey { animation: none; }
+}
